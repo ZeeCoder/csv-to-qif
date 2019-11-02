@@ -99,7 +99,9 @@ const fse = require("fs-extra");
     process.exit(ERR_UNRECOGNISED_CONVERTER);
   }
 
-  const jsonObj = await csv({ delimiter: "\t" }).fromFile(inPath);
+  const jsonObj = await csv({ delimiter: converter.delimiter }).fromFile(
+    inPath
+  );
 
   const cashTransactions = jsonObj.map(data => converter.convert(data));
 

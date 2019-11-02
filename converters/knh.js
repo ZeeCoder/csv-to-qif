@@ -1,5 +1,7 @@
 const moment = require("moment");
 
+const delimiter = "\t";
+
 const convert = rowData => ({
   date: moment(rowData["könyvelés dátuma"], "YYYY.MM.DD").format("DD/MM/YYYY"),
   amount: parseFloat(rowData["összeg"]),
@@ -12,4 +14,7 @@ const convert = rowData => ({
   category: rowData["típus"]
 });
 
-module.exports = { convert };
+module.exports = {
+  delimiter,
+  convert
+};
