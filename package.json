@@ -6,7 +6,10 @@
   "author": "Viktor Hubert <rpgmorpheus@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^2.4.2",
     "csvtojson": "^2.0.10",
+    "fs-extra": "^8.1.0",
+    "inquirer": "^7.0.0",
     "meow": "^5.0.0",
     "moment": "^2.24.0",
     "pify": "^4.0.1",

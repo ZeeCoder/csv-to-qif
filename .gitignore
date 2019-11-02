@@ -7,5 +7,5 @@ lerna-debug.log*
 node_modules/
 .yarn-integrity
 .idea
-in.csv
-out.qif
+in
+out
