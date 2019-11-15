@@ -103,9 +103,9 @@ const fse = require("fs-extra");
     inPath
   );
 
-  const cashTransactions = jsonObj.map(data => converter.convert(data));
-
   try {
+    const cashTransactions = jsonObj.map(data => converter.convert(data));
+
     await writeQifToFile({ cash: cashTransactions }, outPath);
 
     successLog(`Saved QIF to ${outPath}`);

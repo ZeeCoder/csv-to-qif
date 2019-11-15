@@ -3,13 +3,20 @@ const moment = require("moment");
 
 const delimiter = ",";
 
-const convert = rowData => ({
-  date: moment(rowData["Dátum"], "YYYY-MM-DD").format("DD/MM/YYYY"),
-  amount: parseFloat(rowData["Kiadás"].replace("Ft", "").replace(",", "")),
-  payee: " ",
-  memo: rowData["Megjegyzés"],
-  category: " "
-});
+const convert = rowData => {
+  const date = moment(rowData["Dátum"], "YYYY-MM-DD");
+  if (!date.isValid()) {
+    throw new Error(`Invalid date "${rowData["Dátum"]}"`);
+  }
+
+  return {
+    date: date.format("DD/MM/YYYY"),
+    amount: parseFloat(rowData["Kiadás"].replace("Ft", "").replace(",", "")),
+    payee: " ",
+    memo: rowData["Megjegyzés"],
+    category: " "
+  };
+};
 
 module.exports = {
   delimiter,

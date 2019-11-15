@@ -12,11 +12,9 @@ const convert = rowData => {
     date: date.format("DD/MM/YYYY"),
     amount: parseFloat(rowData["összeg"]),
     payee: rowData["partner elnevezése"] || " ",
-    memo: `${[rowData["közlemény"], rowData["típus"]]
-      .filter(str => str.trim() !== "")
-      .join(", ")} - ${rowData["könyvelési számla elnevezése"]} (${
+    memo: `${rowData["típus"]} - ${rowData["könyvelési számla elnevezése"]} (${
       rowData["könyvelési számla"]
-    }, ${rowData["összeg devizaneme"]})`,
+    }, ${rowData["összeg devizaneme"]}), ${rowData["közlemény"]}`,
     category: rowData["típus"] || " "
   };
 };
