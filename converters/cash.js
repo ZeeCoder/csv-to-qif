@@ -11,7 +11,7 @@ const convert = rowData => {
 
   return {
     date: date.format("DD/MM/YYYY"),
-    amount: parseFloat(rowData["Kiadás"].replace("Ft", "").replace(",", "")),
+    amount: parseFloat(rowData["Kiadás"].replace("Ft", "").replace(/,/g, "")),
     payee: " ",
     memo: rowData["Megjegyzés"],
     category: " "
