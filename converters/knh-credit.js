@@ -9,7 +9,7 @@ const convert = rowData => {
   }
 
   return {
-    date: date.format("DD/MM/YYYY"),
+    date: date.format("YYYY-MM-DD"),
     amount: parseFloat(rowData["összeg"]),
     payee: rowData["partner elnevezése"] || " ",
     memo: `${rowData["típus"]} - ${rowData["könyvelési számla elnevezése"]} (${
